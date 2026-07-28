@@ -1,0 +1,21 @@
+# The MCP endpoint is a plain function. Nothing here is stateful, so no
+# background/edge machinery and no session store is required.
+[build]
+  command = "pnpm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Agents connect to https://<host>/mcp
+[[redirects]]
+  from = "/mcp"
+  to = "/.netlify/functions/mcp"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/mcp"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Content-Type-Options = "nosniff"
