@@ -20,7 +20,27 @@ signed manifest; the "is this real" decision is the math, done on your side.
 
 ## Use it
 
-Add it to any MCP client. For Claude Desktop, in `claude_desktop_config.json`:
+### Hosted (no install)
+
+The server runs as a stateless HTTP endpoint, so most clients just need the URL:
+
+```
+https://mcp.realhandles.com/mcp
+```
+
+Nothing to install, no account, no key. Under the 2026-07-28 spec there is no
+session to establish, so a client can call it directly:
+
+```bash
+curl -X POST https://mcp.realhandles.com/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+### Local (stdio)
+
+Still supported and unchanged. For Claude Desktop, in
+`claude_desktop_config.json`:
 
 ```json
 {
@@ -33,8 +53,13 @@ Add it to any MCP client. For Claude Desktop, in `claude_desktop_config.json`:
 }
 ```
 
-Then ask things like "verify the RealHandles identity for david" or "is
+Either way, ask things like "verify the RealHandles identity for david" or "is
 https://example.com a confirmed account of a RealHandles user?"
+
+Both transports serve the same two tools from the same definitions in
+`src/tools.ts`, and verification is local to whoever runs it in both cases. The
+hosted endpoint locates the signed manifest exactly like the local one does; it
+does not become an authority you have to trust.
 
 To point it at a different deployment, set `REALHANDLES_ORIGIN` (defaults to
 `https://realhandles.com`).
