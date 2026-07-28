@@ -3,16 +3,17 @@
 [build]
   command = "pnpm run build"
   publish = "public"
+  # Explicit. With a publish dir set and no framework detected, the default
+  # functions location is not picked up and the endpoint deploys as a 404.
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
 
-# Agents connect to https://<host>/mcp
-[[redirects]]
-  from = "/mcp"
-  to = "/.netlify/functions/mcp"
-  status = 200
-  force = true
+# No redirect for /mcp on purpose. The function exports `config.path = '/mcp'`
+# (Functions API v2), so Netlify serves it there natively. Adding a rewrite to
+# /.netlify/functions/mcp breaks it: that legacy path does not exist under v2
+# routing, so the forced rewrite lands on a 404.
 
 [[headers]]
   for = "/mcp"
