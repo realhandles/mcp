@@ -5,3 +5,7 @@ dist/
 
 # Local Netlify folder
 .netlify
+
+# Not a Deno project. This lockfile is written by tooling that probes for one,
+# and committing it would imply a runtime nothing here uses.
+deno.lock

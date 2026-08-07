@@ -1,2 +1,2 @@
 minimumReleaseAgeExclude:
-  - '@realhandles/verify@0.1.0'
+  - '@realhandles/verify@0.1.0 || 0.6.0'

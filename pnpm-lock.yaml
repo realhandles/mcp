@@ -12,8 +12,8 @@ importers:
         specifier: ^1.12.0
         version: 1.29.0(zod@3.25.76)
       '@realhandles/verify':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.6.0
+        version: 0.6.0
       zod:
         specifier: ^3.23.8
         version: 3.25.76
@@ -43,8 +43,8 @@ packages:
       '@cfworker/json-schema':
         optional: true
 
-  '@realhandles/verify@0.1.0':
-    resolution: {integrity: sha512-pwkbyNIOgEv1eIm44Ni04nXDkq9vZNInnFVS8+pXq2KRyR2MIMbFv1zwf/bSrmJcBRwjz3xNNmYvWWxJgR4g/w==}
+  '@realhandles/verify@0.6.0':
+    resolution: {integrity: sha512-g8dA4iOBwfSjkbxeokrq5ZdkkKkKPphaGBsZ4gaXPJDsFE9JlAB2NOA9y5t3U2lKhrR6KqRWc/YOTwzrkyo7Xg==}
     engines: {node: '>=18'}
 
   '@types/node@22.20.1':
@@ -440,7 +440,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@realhandles/verify@0.1.0':
+  '@realhandles/verify@0.6.0':
     dependencies:
       jose: 6.2.3
 
