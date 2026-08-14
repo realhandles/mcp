@@ -1,6 +1,6 @@
 {
   "name": "@realhandles/mcp",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "MCP server to look up and cryptographically verify RealHandles identities.",
   "type": "module",
   "license": "MIT",
