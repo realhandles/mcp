@@ -74,3 +74,21 @@ npm run build
 ## License
 
 MIT
+
+## Why the `@realhandles/verify` range is not a caret
+
+`package.json` asks for `">=0.10.0 <1.0.0"` rather than `^0.10.0`, and that is
+deliberate.
+
+A caret on a `0.x` version does NOT cross a minor: `^0.6.0` will never install
+`0.7.0`. This package has been silently stranded by that twice, and the second
+time it went three minors behind before anybody noticed, because nothing breaks
+loudly. A manifest carrying a field the pinned verifier does not know still
+verifies, since `verifySignedManifest` checks the signature over the payload
+bytes and re-parses without rejecting unknown properties. So a stale pin does not
+fail; it just quietly stops being able to SURFACE things the product publishes.
+
+While `@realhandles/verify` is pre-1.0 and is maintained in lockstep with the
+site (it is `src/lib/manifest.ts`, `didkey.ts` and `handles.ts` copied verbatim,
+guarded by `pnpm check:verify-sync` over there), tracking the newest 0.x is what
+we actually want. Revisit when it reaches 1.0.
