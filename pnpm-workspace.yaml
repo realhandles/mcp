@@ -1,6 +1,8 @@
 minimumReleaseAgeExclude:
   # Exact versions only: pnpm rejects a range or a wildcard here
-  # (ERR_PNPM_INVALID_MINIMUM_RELEASE_AGE_EXCLUDE). So this list DOES have to be
-  # appended to on every verify release, unlike the dependency range in
-  # package.json, which is now open precisely so it stops needing that.
-  - '@realhandles/verify@0.1.0 || 0.6.0 || 0.7.0 || 0.8.0 || 0.9.0 || 0.10.0'
+  # (ERR_PNPM_INVALID_MINIMUM_RELEASE_AGE_EXCLUDE). Re-tested on pnpm 11.20.0 on
+  # 2026-08-15, after a report that this had been relaxed. It has not:
+  # '@realhandles/verify@*' still errors. So this list DOES have to be appended
+  # to on every verify release, unlike the dependency range in package.json,
+  # which is now open precisely so it stops needing that.
+  - '@realhandles/verify@0.1.0 || 0.6.0 || 0.7.0 || 0.8.0 || 0.9.0 || 0.10.0 || 0.11.0'
