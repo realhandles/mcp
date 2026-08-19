@@ -5,4 +5,4 @@ minimumReleaseAgeExclude:
   # '@realhandles/verify@*' still errors. So this list DOES have to be appended
   # to on every verify release, unlike the dependency range in package.json,
   # which is now open precisely so it stops needing that.
-  - '@realhandles/verify@0.1.0 || 0.6.0 || 0.7.0 || 0.8.0 || 0.9.0 || 0.10.0 || 0.11.0'
+  - '@realhandles/verify@0.1.0 || 0.6.0 || 0.7.0 || 0.8.0 || 0.9.0 || 0.10.0 || 0.11.0 || 0.11.1 || 0.11.2'
